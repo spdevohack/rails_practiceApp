@@ -1,7 +1,45 @@
-<h1>Search Form</h1>
+<h1>Search Tag</h1>
 <%= form_with url:"/search", method: :get do |form| %>
+<%= form.label :query, "Search for:" %>
+<%= form.text_field :query %>
+<%= form.submit "Search" %>
+<br>
+<br>
+<hr>
+<h2>Sign Up</h2>
+<div>
+    <%= form.label :fname, "First Name:" %>
+    <%= form.text_field :fname %><br><br>
+    <%= form.label :lname, "Last Name:" %>
+    <%= form.text_field :lname %><br><br>
+    <div>
+    			<%= form.label "Select Your Gender" %><br><br>
+    			<%= form.radio_button :gender, "Male" %>
+    			<%= form.label :male %><br><br>
+    		  <%= form.radio_button :gender, "Female" %>
+     			<%= form.label :female, "Female" %><br><br>
+     			<%= form.radio_button :gender, "Transgender" %>
+    			<%= form.label :other, "Transgender" %><br><br>
+    </div>
 
-	<%= form.label :query, "Search for:" %>
-	<%= form.text_field :query %>
-	<%= form.submit "Search" %>
+    <%= form.label :phone, "Phone Number:" %>
+    <%= form.text_field :phone %><br><br>
+    <%= form.label :email, "Email Address:" %>
+    <%= form.text_field :email %><br><br>
+    <%= form.label :password, "Password:" %>
+    <%= form.text_field :password %><br><br>
+    <%= form.label :cp_password, "Confirm Password:" %>
+    <%= form.text_field :cp_password %><br><br>
+</div>
+<p>Choose your Movie Interest</p>
+<%= form.check_box :action %>
+<%= form.label :action, "Action Movie" %>
+<%= form.check_box :adventure %>
+<%= form.label :adventure, "Adventure Movie" %>
+<%= form.check_box :comedy %>
+<%= form.label :comedy, "Comedy Movie" %>
+<%= form.check_box :Sci_fi %>
+<%= form.label :Sci_fi, "Science-Fiction Movie" %>
+<br><br>
+<%= form.submit "Sign Up" %>
 <% end %>
