@@ -1,13 +1,14 @@
 <h1>Search Tag</h1>
 <%= form_with url:"/search", method: :get do |form| %>
 <%= form.label :query, "Search for:" %>
-<%= form.text_field :query %>
+<%= form.search_field :query %>
 <%= form.submit "Search" %>
 <br>
 <br>
 <hr>
-<h2>Sign Up</h2>
+<h2>Sign Up </h2>
 <div>
+
     <%= form.label :fname, "First Name:" %>
     <%= form.text_field :fname %><br><br>
     <%= form.label :lname, "Last Name:" %>
@@ -23,13 +24,30 @@
     </div>
 
     <%= form.label :phone, "Phone Number:" %>
-    <%= form.text_field :phone %><br><br>
+		<%= form.telephone_field :phone %><br><br>
     <%= form.label :email, "Email Address:" %>
-    <%= form.text_field :email %><br><br>
-    <%= form.label :password, "Password:" %>
-    <%= form.text_field :password %><br><br>
+		<%= form.email_field :address %><br><br>
+		<%= form.label "Create Password" %>
+		<%= form.password_field :password %><br><br>
     <%= form.label :cp_password, "Confirm Password:" %>
-    <%= form.text_field :cp_password %><br><br>
+    <%= form.password_field :cp_password %><br><br>
+    <%= form.label :message, "Describe: " %>
+		<%= form.text_area :message, size: "70x5" %> <br><br>
+		<%= form.hidden_field :parent_id, value: "foo" %>
+    <p>Number And Range field</p>
+		<%= form.number_field :price, in: 1.0..20.0, step: 0.5 %>
+    <%= form.range_field :discount, in: 1..100 %>
+    <br><br>
+    <p>Date And Time field</p>
+		<%= form.date_field :born_on %><br><br>
+		<%= form.time_field :started_at %>	<br><br>
+    <%= form.datetime_local_field :graduation_day %><br><br>
+		<%= form.month_field :birthday_month %><br><br>
+		<%= form.week_field :birthday_week %><br><br>
+		<%= form.url_field :homepage %>
+		<%= form.time_zone_select :time_zone %>
+		<%= form.color_field :favorite_color %><br><br>
+
 </div>
 <p>Choose your Movie Interest</p>
 <%= form.check_box :action %>
@@ -41,5 +59,11 @@
 <%= form.check_box :Sci_fi %>
 <%= form.label :Sci_fi, "Science-Fiction Movie" %>
 <br><br>
+<%= form.label "Select State: " %>
+<%= form.select :state, ["Haryana","Uttar pradesh", "Madhya Pradesh", "Rajasthan", "Maharastra", "karnataka","Odissa", "Bihar", "Jammu & Kashmir", "Himachal Pradesh", "Punjab", "Meghalaya", "Assam", "Tripura", "Arunanchal Pradesh", "West Bengal", "Chattisgarh","Tamilnadu", "Goa","Telangana", "Andhra Pradesh", "Kerla" ,"Uttrakhand","Gujrat","Sikkim"], selected: "Maharastra" %><br><br>
+<%= form.file_field :picture %>
+
+<br><br>
 <%= form.submit "Sign Up" %>
+<br><br>
 <% end %>
